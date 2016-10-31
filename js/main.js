@@ -12,6 +12,7 @@ window.addEventListener("scroll", function checkDistance(){
 		layers[i].style.mozTransform = translate3d;
 		layers[i].style.msTransform = translate3d;
 		layers[i].style.transform = translate3d;
+
 	}
 });
 
