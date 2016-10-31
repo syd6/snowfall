@@ -80,6 +80,11 @@
 	font-family: 'Kaushan Script', cursive;
 	font-size: 300%;
 	padding-left: 8%;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3.3%;
+
 }
 .textcontent{
 	background-color: #000;
@@ -93,7 +98,6 @@
 .textcontent2{
 	font-family: 'Lato', serif;
 	font-size: 90%;
-	line-height: 2.1em;
 	background-color: #fff;
 /*	padding-left: 1%;*/
 	padding-right: 1%;	
@@ -103,7 +107,13 @@
 }
 .textcontent2 p{
 	color: #000;
-
 	padding-left: 8%;
 	padding-right: 8%;
+	width: 50%;
+	margin: auto;
+	line-height: 2.5em;
+}
+
+.author{
+	font-style: italic;
 }
