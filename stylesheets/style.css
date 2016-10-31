@@ -1,5 +1,6 @@
 .body{
 	font: sans-serif;
+	margin: none;
 }
 #container{
 	width: 100%;
@@ -55,6 +56,21 @@
 	background-image: url(../images/winter/snowpile.png);
 	background-position: center-bottom;
 	background-size: 100% 100%;
+}
+.layer10{
+	background-image: url(../images/winter/baretree.png);
+}
+.layer11{
+	background-image: url(../images/winter/snowpatches1.png);
+}
+.layer12{
+	background-image: url(../images/winter/snowpatches2.png);
+}
+.layer13{
+	background-image: url(../images/winter/snowpatches3.png);
+}
+.layer14{
+	background-image: url(../images/winter/snowpatchesfinal.png);
 }
 
 /*main content*/

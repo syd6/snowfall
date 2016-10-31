@@ -1,3 +1,4 @@
+//PARALLAX EFFECT
 window.addEventListener("scroll", function checkDistance(){
 
 	var topDistance = window.pageYOffset;
@@ -14,4 +15,14 @@ window.addEventListener("scroll", function checkDistance(){
 	}
 });
 
+
+
+//JQUERY SNOWPATCH EFFECT
+$(window).on("load", function(){
+	$(window).scroll(function(){
+		$(".fade").each(function(){
+			//TODO: IMPLEMENT A FUNCTION THAT MAKES CIRCLES SHOW BASED ON SCREEN POSITION 
+		})
+	})
+});
 
