@@ -53,6 +53,11 @@
 	background-image: url(../images/winter/cloud1.png);
 	background-position: right-top;
 }
+.layer15{
+	background-image: url(../images/winter/snowpilebehind.png);
+	background-position: center-bottom;
+	background-size: 100% 100%;
+}
 .layer9{
 	background-image: url(../images/winter/snowpile.png);
 	background-position: center-bottom;
@@ -74,6 +79,7 @@
 .layer14{
 	background-image: url(../images/winter/snowpatchesfinal.png);
 }
+
 
 /*main content*/
 .heading{
