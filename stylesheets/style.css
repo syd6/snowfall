@@ -117,3 +117,9 @@
 .author{
 	font-style: italic;
 }
+.audioplayer{
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3%;
+}
