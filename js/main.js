@@ -16,6 +16,19 @@ window.addEventListener("scroll", function checkDistance(){
 	}
 });
 
+//JQUERY COLOR EFFECT 
+$(document).ready(function(){
+	var scroll_pos = 0;
+	$(document).scroll(function(){
+		scroll_pos = $(this).scrollTop();
+		if (scroll_pos>210){
+			$(".layer5").css('background-color', '#56759D');
+		}
+		else{
+			$(".layer5").css('background-color', '#ABCFFB');	
+		}
+	});
+});
 
 
 //JQUERY SNOWPATCH EFFECT
@@ -26,4 +39,20 @@ $(window).on("load", function(){
 		})
 	})
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
