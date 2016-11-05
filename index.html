@@ -1,28 +1,36 @@
 <!doctype html>
 <head>
 	<title>Wintry Memories</title>
+	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<!--JQUERY-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<!--JS EFFECTS FOR PARALLAX AND TRANSITIONS-->
 	<script src="js/main.js"></script>
+	<!--WEATHER FILE-->
+	<script src="js/weather.js"></script>
+	<!--FONTS-->
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
-
-	<!--MUSIC PLAYER-->
-	<!--<script src="audioplayerengine/jquery.js"></script>
-	<script src="audioplayerengine/amazingaudioplayer.js"></script>
-	<link rel="stylesheet" type="text/css" href="audioplayerengine/initaudioplayer-1.css">
-	<script src="audioplayerengine/initaudioplayer-1.js"></script>-->
 </head>
 <body>
 	
 	<div id="container">
+		<!--WEATHER API EXPERIMENTATION-->
+		<div id="weather">
+			<!--change id to the city code, send this information the jquery file and use it to 
+			call the information for the corresponding city-->
+			<!--<button id="california">Los Angeles</button>-->
+			<br>
+		</div>
+		<!--END WEATHER API EXPERIMENTATION-->
 		<div class="layer layer5" data-depth="1.00"></div>
 		<div class="layer layer6" data-depth="0.10"></div>
 		<div class="layer layer7" data-depth="0.20"></div>
 		<div class="layer layer8" data-depth="0.50"></div>
 		<div class="layer layer15" data-depth="0.55"></div>
 
-		<div class="layer layer9" data-depth="0.80"></div>
+		<div class="layer layer9" data-depth="0.86"></div>
 		<div class="layer layer10" data-depth="0.81"></div>
 		<div class="layer layer11 fade" data-depth="0.81"></div>
 		<div class="layer layer12 fade" data-depth="0.81"></div>
@@ -32,10 +40,8 @@
 	</div>
 		<br>
 		<br>
-
-
 		
-	<div class="textcontent2" >
+	<div class="textcontent2">
 		<h1 class="heading">Blow, Blow, thou Winter Wind</h1>
 		<p>Blow, blow, thou winter wind,</p>
 		<p>Thou art not so unkind</p>
@@ -69,22 +75,5 @@
 		</div>
 		<footer class="copyright">&copy; <a href="http://sophiadeng.me">Sophia Deng</a></footer>
 	</div>
-
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
