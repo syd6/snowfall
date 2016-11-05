@@ -23,15 +23,17 @@ $(document).ready(function(){
 		scroll_pos = $(this).scrollTop();
 		if (scroll_pos>210){
 			$(".layer5").css('background-color', '#56759D');
+			$("#weather").css('color', '#fff');
 		}
 		else{
 			$(".layer5").css('background-color', '#ABCFFB');	
+			$("#weather").css('color', '#000');
 		}
 	});
 });
 
 
-//JQUERY SNOWPATCH EFFECT
+//JQUERY SNOWPATCH EFFECT: NOT IMPLEMENTED YET
 $(window).on("load", function(){
 	$(window).scroll(function(){
 		$(".fade").each(function(){
