@@ -12,7 +12,7 @@ $(document).ready(function(){
 	$cityindexcali = '5368361';
 
 
-	//EXTRACT JSON FROM URL given $cityindex and default api key
+	//FUNCTION #1: EXTRACT JSON FROM URL given $cityindex and default api key
 	$.getJSON('http://api.openweathermap.org/data/2.5/weather?id='+$cityindex+'&appid='+$api, function(data){
 		
 		//param data contains json information 
@@ -49,18 +49,38 @@ $(document).ready(function(){
 			}
 		}
 	});
-
-
-
 	//counter. if odd, show california weather data. if even, wipe that and show ithaca weather
 	//currently does nothing. need to implement
 	var counter = 0;
-	//TODO 
+	//TODO FUNCTION #2
 	$("#california").click(function(){
 		//this does nothing yet 
 		counter += 1;
 	});
 
+
+	/*********DISPLAY TIME************/
+	var d = new Date();
+	var hours = d.getHours();
+	var mins = d.getMinutes();
+	if (hours >= 12){
+		if (mins < 10){
+			$("#weather").append((hours-12)+":"+"0"+mins+"PM"+"<br>");
+		}
+
+		else $("#weather").append((hours-12)+":"+mins+"PM"+"<br>");
+
+	}
+	else{
+		if (mins < 10){
+			$("#weather").append(hours+":"+"0"+mins+"AM"+"<br>");
+		}
+
+		else $("#weather").append(hours+":"+mins+"AM"+"<br>");
+	}
+	
+	
+	/***********END DISPLAY TIME**********/
 	
 });
 
