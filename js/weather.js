@@ -12,6 +12,12 @@ $(document).ready(function(){
 	$cityindexcali = '5368361';
 
 
+
+
+
+
+
+
 	//FUNCTION #1: EXTRACT JSON FROM URL given $cityindex and default api key
 	$.getJSON('http://api.openweathermap.org/data/2.5/weather?id='+$cityindex+'&appid='+$api, function(data){
 		
@@ -52,6 +58,11 @@ $(document).ready(function(){
 	//counter. if odd, show california weather data. if even, wipe that and show ithaca weather
 	//currently does nothing. need to implement
 	var counter = 0;
+
+
+
+
+
 	//TODO FUNCTION #2
 	$("#california").click(function(){
 		//this does nothing yet 
@@ -59,7 +70,12 @@ $(document).ready(function(){
 	});
 
 
-	/*********DISPLAY TIME************/
+
+
+
+
+	/*FUNCTION #3 DISPLAY TIME************
+	**********************************/
 	var d = new Date();
 	var hours = d.getHours();
 	var mins = d.getMinutes();
@@ -67,37 +83,30 @@ $(document).ready(function(){
 		if (mins < 10){
 			$("#weather").append((hours-12)+":"+"0"+mins+"PM"+"<br>");
 		}
-
 		else $("#weather").append((hours-12)+":"+mins+"PM"+"<br>");
-
 	}
 	else{
 		if (mins < 10){
 			$("#weather").append(hours+":"+"0"+mins+"AM"+"<br>");
 		}
-
 		else $("#weather").append(hours+":"+mins+"AM"+"<br>");
 	}
-	
-	
-	/***********END DISPLAY TIME**********/
+	/***********END DISPLAY TIME**********
+	*************************************/
+
+
+
+
+
+
+	/*FUNCTION #4: change background and textcolor based on time **
+	************************************************/
+	var shades = ['#abcffb','#abcffb', '#99bae1', '#7790af', '#667c96', '#55677d'];
+	//change color every four hours background is shades[hours/4]
+	$(".layer5").css('background-color', shades[Math.floor(hours/4)-1]);
+	if (hours >= 12) $("#weather").css('color', '#fff');
+	console.log(hours);
+	/****END CHANGE BACKGROUND BASED ON TIME*
+	*****************************************/
 	
 });
-
-
-
-
-/*
-// Add your code below this line!
-xhr = new XMLHttpRequest();
-xhr.open("GET", "https://www.codecademy.com/", false);
-xhr.send();
-
-// Add your code above this line!
-
-console.log(xhr.status);
-console.log(xhr.statusText);
-^outputs :
-200 
-OK
-*/
