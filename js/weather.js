@@ -73,7 +73,6 @@ $(document).ready(function(){
 
 
 
-
 	/*FUNCTION #3 DISPLAY TIME************
 	**********************************/
 	var d = new Date();
@@ -101,11 +100,57 @@ $(document).ready(function(){
 
 	/*FUNCTION #4: change background and textcolor based on time **
 	************************************************/
-	var shades = ['#abcffb','#abcffb', '#99bae1', '#7790af', '#667c96', '#55677d'];
-	//change color every four hours background is shades[hours/4]
-	$(".layer5").css('background-color', shades[Math.floor(hours/4)-1]);
+	var shades1 = ['#55677d','#abcffb', '#99bae1', '#7790af', '#667c96', '#55677d'];
+	var shades2 = ['hsl(206, 70%, 85%)'];
+
+
+	//FROM 12AM-6AM dark 
+		//total mins elapsed: 360 mins
+		//20%-35% (increase in 15% over 360 mins)
+		//brighten at a rate of 0.04% per minute
+		//min1 = 20% + 0.04%, min2 = 20+(0.04%)2, min3 = 20+(0.04%)3, etc
+	if (hours >= 0 && hours <6){
+		//brightness = 20% + 0.04 (total time elapsed so far)
+		var brightness = 20+0.04((hours*60)+mins);
+		$(".layer5").css('background-color', 'hsl(206, 70%, '+brightness+'%)');
+	}
+
+	//6AM quickly transition to light
+	//FROM 6AM-3PM 
+	else if (hours >= 6 && hours < 15){
+		//stays bright from 6 - 3pm
+		$(".layer5").css('background-color', 'hsl(206, 70%, 85%)');
+	}
+	
+	else if (hours >=15 && hours <18){
+		//total minutes elapsed: 180 
+		//85% - 40% for brightness
+		//decrease in 45% over 180 minutes
+		//darken at a rate of 0.25% per minute
+		//saturation goes from 70-50
+		//decrease in 20% over 180 minutes
+		//desaturate at a rate of 0.11% perminute
+		var brightness = 85-0.25((hours*60)+mins);
+		var desaturation = 70-0.11((hours*60)+mins);
+		$(".layer5").css('background-color', 'hsl(206, '+desaturation+'%, '+brightness+'%)');
+	}
+	//else between hours 18 to 24 
+	else {
+		$(".layer5").css('background-color', 'hsl(206, 50%, 30%');
+	}
+	//$(".layer5").css('background-color', shades2[Math.floor(hours/4)-1]);
+
 	if (hours >= 12) $("#weather").css('color', '#fff');
 	console.log(hours);
+
+	//use HSL 
+
+
+	//change colors so that they fluctuate within a range every ____ hour s
+	//morning #abcffb - #abcffb (sky shouldnt change much during morning)
+	//at key hours during the day will transition suddenly into another color code
+	//morning - early afternoon #abcffb - $99bae1
+
 	/****END CHANGE BACKGROUND BASED ON TIME*
 	*****************************************/
 	
