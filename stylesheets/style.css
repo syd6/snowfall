@@ -148,9 +148,9 @@
 #weather{
 	font-family: 'Roboto Condensed', sans-serif;
 	position: fixed;
-	/*transition: color 1s linear;
+	transition: color 1s linear;
     -webkit-transition: color 1s linear;
-    -moz-transition: color 1s linear;*/
+    -moz-transition: color 1s linear;
     width: 15%;
     height: 15%;
     text-align: center;

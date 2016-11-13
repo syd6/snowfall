@@ -130,8 +130,9 @@ $(document).ready(function(){
 		//saturation goes from 70-50
 		//decrease in 20% over 180 minutes
 		//desaturate at a rate of 0.11% perminute
-		var brightness = 85-0.25*((hours*60)+mins);
-		var desaturation = 70-0.11*((hours*60)+mins);
+		var brightness = 85-0.25*(((hours-15)*60)+mins);
+		//have to subtract by 15 bc ur starting at 0 hr elapsed for this color cycle 
+		var desaturation = 70-0.11*(((hours-15)*60)+mins);
 		$(".layer5").css('background-color', 'hsl(206, '+desaturation+'%, '+brightness+'%)');
 	}
 	//else between hours 18 to 24 
