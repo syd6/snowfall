@@ -111,7 +111,7 @@ $(document).ready(function(){
 		//min1 = 20% + 0.04%, min2 = 20+(0.04%)2, min3 = 20+(0.04%)3, etc
 	if (hours >= 0 && hours <6){
 		//brightness = 20% + 0.04 (total time elapsed so far)
-		var brightness = 20+0.04((hours*60)+mins);
+		var brightness = 20+0.04*((hours*60)+mins);
 		$(".layer5").css('background-color', 'hsl(206, 70%, '+brightness+'%)');
 	}
 
@@ -122,7 +122,7 @@ $(document).ready(function(){
 		$(".layer5").css('background-color', 'hsl(206, 70%, 85%)');
 	}
 	
-	else if (hours >=15 && hours <18){
+	else if (hours >= 15 && hours <18){
 		//total minutes elapsed: 180 
 		//85% - 40% for brightness
 		//decrease in 45% over 180 minutes
@@ -130,8 +130,8 @@ $(document).ready(function(){
 		//saturation goes from 70-50
 		//decrease in 20% over 180 minutes
 		//desaturate at a rate of 0.11% perminute
-		var brightness = 85-0.25((hours*60)+mins);
-		var desaturation = 70-0.11((hours*60)+mins);
+		var brightness = 85-0.25*((hours*60)+mins);
+		var desaturation = 70-0.11*((hours*60)+mins);
 		$(".layer5").css('background-color', 'hsl(206, '+desaturation+'%, '+brightness+'%)');
 	}
 	//else between hours 18 to 24 
