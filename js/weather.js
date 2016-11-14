@@ -13,11 +13,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
 	//FUNCTION #1: EXTRACT JSON FROM URL given $cityindex and default api key
 	$.getJSON('http://api.openweathermap.org/data/2.5/weather?id='+$cityindex+'&appid='+$api, function(data){
 		
@@ -73,76 +68,55 @@ $(document).ready(function(){
 
 
 
-	/*FUNCTION #3 DISPLAY TIME************
-	**********************************/
 	var d = new Date();
 	var hours = d.getHours();
 	var mins = d.getMinutes();
-	if (hours >= 12){
-		if (mins < 10){
-			$("#weather").append((hours-12)+":"+"0"+mins+"PM"+"<br>");
-		}
-		else $("#weather").append((hours-12)+":"+mins+"PM"+"<br>");
-	}
-	else{
-		if (mins < 10){
-			$("#weather").append(hours+":"+"0"+mins+"AM"+"<br>");
-		}
-		else $("#weather").append(hours+":"+mins+"AM"+"<br>");
-	}
-	/***********END DISPLAY TIME**********
-	*************************************/
-
-
-
-
-
-
+	var secs = d.getSeconds();
 	/*FUNCTION #4: change background and textcolor based on time **
 	************************************************/
-	var shades1 = ['#55677d','#abcffb', '#99bae1', '#7790af', '#667c96', '#55677d'];
-	var shades2 = ['hsl(206, 70%, 85%)'];
-
-
-	//FROM 12AM-6AM dark 
+	function dynamicColorChange(hours, mins){
+		//FROM 12AM-6AM dark 
 		//total mins elapsed: 360 mins
 		//20%-35% (increase in 15% over 360 mins)
 		//brighten at a rate of 0.04% per minute
 		//min1 = 20% + 0.04%, min2 = 20+(0.04%)2, min3 = 20+(0.04%)3, etc
-	if (hours >= 0 && hours <6){
-		//brightness = 20% + 0.04 (total time elapsed so far)
-		var brightness = 20+0.04*((hours*60)+mins);
-		$(".layer5").css('background-color', 'hsl(206, 70%, '+brightness+'%)');
-	}
+		if (hours >= 0 && hours <6){
+			//brightness = 20% + 0.04 (total time elapsed so far)
+			var brightness = 20+0.04*((hours*60)+mins);
+			$(".layer5").css('background-color', 'hsl(206, 70%, '+brightness+'%)');
+		}
 
-	//6AM quickly transition to light
-	//FROM 6AM-3PM 
-	else if (hours >= 6 && hours < 15){
-		//stays bright from 6 - 3pm
-		$(".layer5").css('background-color', 'hsl(206, 70%, 85%)');
-	}
-	
-	else if (hours >= 15 && hours <18){
-		//total minutes elapsed: 180 
-		//85% - 40% for brightness
-		//decrease in 45% over 180 minutes
-		//darken at a rate of 0.25% per minute
-		//saturation goes from 70-50
-		//decrease in 20% over 180 minutes
-		//desaturate at a rate of 0.11% perminute
-		var brightness = 85-0.25*(((hours-15)*60)+mins);
-		//have to subtract by 15 bc ur starting at 0 hr elapsed for this color cycle 
-		var desaturation = 70-0.11*(((hours-15)*60)+mins);
-		$(".layer5").css('background-color', 'hsl(206, '+desaturation+'%, '+brightness+'%)');
-	}
-	//else between hours 18 to 24 
-	else {
-		$(".layer5").css('background-color', 'hsl(206, 50%, 30%');
-	}
-	//$(".layer5").css('background-color', shades2[Math.floor(hours/4)-1]);
+		//6AM quickly transition to light
+		//FROM 6AM-3PM 
+		if (hours >= 6 && hours < 15){
+			//stays bright from 6 - 3pm
+			$(".layer5").css('background-color', 'hsl(206, 70%, 85%)');
+		}
+		
+		if (hours >= 15 && hours <18){
+			//total minutes elapsed: 180 
+			//85% - 40% for brightness
+			//decrease in 45% over 180 minutes
+			//darken at a rate of 0.25% per minute
+			//saturation goes from 70-50
+			//decrease in 20% over 180 minutes
+			//desaturate at a rate of 0.11% perminute
+			var brightness = 85-0.25*(((hours-15)*60)+mins);
+			//have to subtract by 15 bc ur starting at 0 hr elapsed for this color cycle 
+			var desaturation = 70-0.11*(((hours-15)*60)+mins);
+			$(".layer5").css('background-color', 'hsl(206, '+desaturation+'%, '+brightness+'%)');
+		}
+		//else between hours 18 to 24 
+		if (hours >=18 && hours < 24) {
+			$(".layer5").css('background-color', 'hsl(206, 50%, 30%)');
+		}
+		//$(".layer5").css('background-color', shades2[Math.floor(hours/4)-1]);
 
-	if (hours >= 12) $("#weather").css('color', '#fff');
-	console.log(hours);
+		if (hours >= 12) $("#weather").css('color', '#fff');
+		console.log(hours);
+	}
+	//function call
+	dynamicColorChange(hours, mins);
 
 	//use HSL 
 
@@ -154,5 +128,44 @@ $(document).ready(function(){
 
 	/****END CHANGE BACKGROUND BASED ON TIME*
 	*****************************************/
-	
 });
+//end jQUERY block
+
+
+//TODO***: http://stackoverflow.com/questions/10470825/how-to-make-javascript-time-automatically-update
+//GLOBAL VARIABLES, accessible outside of displayTime function
+
+
+function displayTime(){
+	var d = new Date();
+	var hours = d.getHours();
+	var mins = d.getMinutes();
+	var secs = d.getSeconds();
+	if (hours >= 12){
+		if (mins < 10){
+			document.getElementById("time").innerHTML = (hours-12)+":"+"0"+mins+":"+secs+" PM"+"<br>";
+			//$("#weather").append("<br>"+(hours-12)+":"+"0"+mins+":"+secs+" PM"+"<br>");
+		}
+		else{
+			//$("#weather").append("<br>"+(hours-12)+":"+mins+":"+secs+" PM"+"<br>");
+			document.getElementById("time").innerHTML = (hours-12)+":"+mins+":"+secs+" PM"+"<br>";
+		}
+	}
+	else{
+		if (mins < 10){
+			$("#weather").append("<br>"+hours+":"+"0"+mins+":"+secs+" AM"+"<br>");
+		}
+		else $("#weather").append("<br>"+hours+":"+mins+":"+secs+" AM"+"<br>");
+	}
+}
+
+function autoUpdateTime(){
+	setInterval(displayTime, 1000);
+}
+//call function
+autoUpdateTime();
+
+	
+	/***********END DISPLAY TIME**********
+	*************************************/
+
