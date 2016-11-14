@@ -14,14 +14,14 @@ $(document).ready(function(){
 
 
 	//FUNCTION #1: EXTRACT JSON FROM URL given $cityindex and default api key
+
 	$.getJSON('http://api.openweathermap.org/data/2.5/weather?id='+$cityindex+'&appid='+$api, function(data){
 		
 		//param data contains json information 
 		console.log(data);
 		//append some single elements within json
 		$("#weather").append("City:"+ " " + data.name);
-		
-
+	
 		//loop through the weather object stored in json and print each element
 		var weatherelement;
 		for (weatherelement in data.weather[0]){
@@ -49,14 +49,13 @@ $(document).ready(function(){
 				else $("#weather").append("<br>"+temper+ ": " + data.main[temper]);
 			}
 		}
+		
 	});
+
+
 	//counter. if odd, show california weather data. if even, wipe that and show ithaca weather
 	//currently does nothing. need to implement
 	var counter = 0;
-
-
-
-
 
 	//TODO FUNCTION #2
 	$("#california").click(function(){
@@ -107,16 +106,20 @@ $(document).ready(function(){
 		}
 		//else between hours 18 to 24 
 		if (hours >=18 && hours < 24) {
+			//ORIGINAL
 			$(".layer5").css('background-color', 'hsl(206, 50%, 30%)');
+			//FOR TESTING
+			/*var brightness = 85-0.30*(((hours-18)*60)+mins);
+			//have to subtract by 15 bc ur starting at 0 hr elapsed for this color cycle 
+			$(".layer5").css('background-color', 'hsl(206, 50%, '+brightness+'%)');
+			*/
 		}
 		//$(".layer5").css('background-color', shades2[Math.floor(hours/4)-1]);
-
-		if (hours >= 12) $("#weather").css('color', '#fff');
-		console.log(hours);
+		if (hours >= 15) $("#weather").css('color', '#fff');
+		if (hours < 15) $("#weather").css('color', '#000');
 	}
-	//function call, update every second
+	//function call, update every second <<<<does not work, find out why
 	setInterval(dynamicColorChange, 1000);
-
 	/****END CHANGE BACKGROUND BASED ON TIME*
 	*****************************************/
 });
