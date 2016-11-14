@@ -145,9 +145,13 @@ function displayTime(){
 	}
 	else{
 		if (mins < 10){
-			$("#weather").append("<br>"+hours+":"+"0"+mins+":"+secs+" AM"+"<br>");
+			document.getElementById("time").innerHTML = hours+":"+"0"+mins+":"+secs+" AM"+"<br>";
+			//$("#weather").append("<br>"+hours+":"+"0"+mins+":"+secs+" AM"+"<br>");
 		}
-		else $("#weather").append("<br>"+hours+":"+mins+":"+secs+" AM"+"<br>");
+		else{
+			//$("#weather").append("<br>"+hours+":"+mins+":"+secs+" AM"+"<br>");
+			document.getElementById("time").innerHTML = hours+":"+mins+":"+secs+" AM"+"<br>";
+		}
 	}
 }
 //call function, update every second 
