@@ -116,7 +116,7 @@ $(document).ready(function(){
 		}
 		//$(".layer5").css('background-color', shades2[Math.floor(hours/4)-1]);
 		if (hours >= 15) $("#weather").css('color', '#fff');
-		if (hours < 15) $("#weather").css('color', '#000');
+		if (hours < 15 && hours > 6) $("#weather").css('color', '#000');
 	}
 	//function call, update every second <<<<does not work, find out why
 	setInterval(dynamicColorChange, 1000);
