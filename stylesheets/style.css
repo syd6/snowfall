@@ -40,8 +40,7 @@
 
 /*winter layer*/
 .layer5{
-	/*background-image: url(../images/winter/sky.png);
-	background-size: 100% 100%;*/
+	
 	background-color: #ABCFFB;
 	transition: background 2s linear;
     -webkit-transition: background 2s linear;
