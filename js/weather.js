@@ -66,15 +66,14 @@ $(document).ready(function(){
 
 
 
-
-
-	var d = new Date();
-	var hours = d.getHours();
-	var mins = d.getMinutes();
-	var secs = d.getSeconds();
 	/*FUNCTION #4: change background and textcolor based on time **
 	************************************************/
-	function dynamicColorChange(hours, mins){
+	function dynamicColorChange(){
+		//grab time variables
+		var d = new Date();
+		var hours = d.getHours();
+		var mins = d.getMinutes();
+		var secs = d.getSeconds();
 		//FROM 12AM-6AM dark 
 		//total mins elapsed: 360 mins
 		//20%-35% (increase in 15% over 360 mins)
@@ -115,16 +114,8 @@ $(document).ready(function(){
 		if (hours >= 12) $("#weather").css('color', '#fff');
 		console.log(hours);
 	}
-	//function call
-	dynamicColorChange(hours, mins);
-
-	//use HSL 
-
-
-	//change colors so that they fluctuate within a range every ____ hour s
-	//morning #abcffb - #abcffb (sky shouldnt change much during morning)
-	//at key hours during the day will transition suddenly into another color code
-	//morning - early afternoon #abcffb - $99bae1
+	//function call, update every second
+	setInterval(dynamicColorChange, 1000);
 
 	/****END CHANGE BACKGROUND BASED ON TIME*
 	*****************************************/
@@ -132,10 +123,8 @@ $(document).ready(function(){
 //end jQUERY block
 
 
-//TODO***: http://stackoverflow.com/questions/10470825/how-to-make-javascript-time-automatically-update
-//GLOBAL VARIABLES, accessible outside of displayTime function
-
-
+/*********FUNCTION: AUTOMATICALLY UPDATING CLOCK*******
+***************************************/
 function displayTime(){
 	var d = new Date();
 	var hours = d.getHours();
@@ -158,14 +147,11 @@ function displayTime(){
 		else $("#weather").append("<br>"+hours+":"+mins+":"+secs+" AM"+"<br>");
 	}
 }
+//call function, update every second 
+setInterval(displayTime, 1000);
 
-function autoUpdateTime(){
-	setInterval(displayTime, 1000);
-}
-//call function
-autoUpdateTime();
 
 	
-	/***********END DISPLAY TIME**********
-	*************************************/
+/***********END DISPLAY TIME**********
+*************************************/
 
