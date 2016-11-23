@@ -40,15 +40,15 @@
 
 /*winter layer*/
 .layer5{
-	
 	background-color: #ABCFFB;
 	transition: background 2s linear;
     -webkit-transition: background 2s linear;
     -moz-transition: background 2s linear;
 }
+/*
 .layer6{
 	background-image: url(../images/winter/snowflakelayer1.png);
-}
+}*/
 .layer7{
 	background-image: url(../images/winter/snowflakelayer2.png);
 }
