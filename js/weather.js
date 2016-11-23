@@ -250,7 +250,7 @@ window.onload = function(){
 		}
 	}
 	//loop
-	setInterval(draw, 50);
+	setInterval(draw, 30);
 }
 
 
