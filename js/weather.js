@@ -45,10 +45,15 @@ $(document).ready(function(){
 					var kelvintofahren = intvalueoftemperature*(9/5)-459.67;
 					//display the temperature in Fahrenheit
 					$("#weather").append("<br><span class='weatherheading'>"+temper+ "erature</span>: " + kelvintofahren.toFixed(2) + " F&deg;");
+					//make a call to the function where you want weather to manipulate the results 
+					//function call, update every second 
+					//need to create an anon function to call a function with parameters
+					setInterval(function(){dynamicColorChange(kelvintofahren)}, 1000);
 				}
 				else $("#weather").append("<br>"+temper+ ": " + data.main[temper]);
 			}
 		}
+		return data;
 		
 	});
 
@@ -67,12 +72,14 @@ $(document).ready(function(){
 
 	/*FUNCTION #4: change background and textcolor based on time **
 	************************************************/
-	function dynamicColorChange(){
+	//called in second block of getJSON function 
+	function dynamicColorChange(weather){
 		//grab time variables
 		var d = new Date();
 		var hours = d.getHours();
 		var mins = d.getMinutes();
 		var secs = d.getSeconds();
+
 		//FROM 12AM-6AM dark. total mins elapsed: 360 
 		//20%-35% (increase in 15% over 360 mins). Brighten at rate of 0.04% per min
 		//min1 = 20% + 0.04%, min2 = 20+(0.04%)2, min3 = 20+(0.04%)3, etc
@@ -80,6 +87,9 @@ $(document).ready(function(){
 			//brightness = 20% + 0.04 (total time elapsed so far)
 			var brightness = 20+0.04*((hours*60)+mins);
 			$(".layer5").css('background-color', 'hsl(206, 70%, '+brightness+'%)');
+			if (weather < 35){
+				//make the color duller 
+			}
 		}
 
 		//6AM quickly transition to light
@@ -87,6 +97,9 @@ $(document).ready(function(){
 		if (hours >= 6 && hours < 15){
 			//stays bright from 6 - 3pm
 			$(".layer5").css('background-color', 'hsl(206, 70%, 85%)');
+			if (weather < 35){
+				//make the color a little duller/grayer
+			}
 		}
 		
 		if (hours >= 15 && hours <18){
@@ -97,6 +110,9 @@ $(document).ready(function(){
 			//have to subtract by 15 bc ur starting at 0 hr elapsed for this color cycle 
 			var desaturation = 70-0.11*(((hours-15)*60)+mins);
 			$(".layer5").css('background-color', 'hsl(206, '+desaturation+'%, '+brightness+'%)');
+			if (weather < 35){
+				//make the color a little whiter
+			}
 		}
 		//else between hours 18 to 24 
 		if (hours >=18 && hours < 24) {
@@ -107,54 +123,60 @@ $(document).ready(function(){
 			//have to subtract by 15 bc ur starting at 0 hr elapsed for this color cycle 
 			$(".layer5").css('background-color', 'hsl(206, 50%, '+brightness+'%)');
 			*/
+			if (weather < 35){
+				//make the color a little duller
+				
+			}
 		}
 		//$(".layer5").css('background-color', shades2[Math.floor(hours/4)-1]);
 		if (hours >= 15 && hours <= 6) $("#weather").css('color', '#fff');
 		if (hours < 15 && hours > 6) $("#weather").css('color', '#000');
 	}
-	//function call, update every second <<<<does not work, find out why
-	setInterval(dynamicColorChange, 1000);
+
 	/****END CHANGE BACKGROUND BASED ON TIME*
 	*****************************************/
-});
-//end jQUERY block
-
-
-/*********FUNCTION: AUTOMATICALLY UPDATING CLOCK*******
-***************************************/
-function displayTime(){
-	var d = new Date();
-	var hours = d.getHours();
-	var mins = d.getMinutes();
-	var secs = d.getSeconds();
-	if (hours >= 12){
-		if (mins < 10){
-			document.getElementById("time").innerHTML = (hours-12)+":"+"0"+mins+":"+secs+" PM"+"<br>";
-			//$("#weather").append("<br>"+(hours-12)+":"+"0"+mins+":"+secs+" PM"+"<br>");
-		}
-		else{
-			//$("#weather").append("<br>"+(hours-12)+":"+mins+":"+secs+" PM"+"<br>");
-			document.getElementById("time").innerHTML = (hours-12)+":"+mins+":"+secs+" PM"+"<br>";
-		}
-	}
-	else{
-		if (mins < 10){
-			document.getElementById("time").innerHTML = hours+":"+"0"+mins+":"+secs+" AM"+"<br>";
-			//$("#weather").append("<br>"+hours+":"+"0"+mins+":"+secs+" AM"+"<br>");
-		}
-		else{
-			//$("#weather").append("<br>"+hours+":"+mins+":"+secs+" AM"+"<br>");
-			document.getElementById("time").innerHTML = hours+":"+mins+":"+secs+" AM"+"<br>";
-		}
-	}
-}
-//call function, update every second 
-setInterval(displayTime, 1000);
 
 
 	
+});
+//end jQUERY block
+
+/*********FUNCTION: AUTOMATICALLY UPDATING CLOCK*******
+	***************************************/
+	function displayTime(){
+		var d = new Date();
+		var hours = d.getHours();
+		var mins = d.getMinutes();
+		var secs = d.getSeconds();
+		if (hours >= 12){
+			if (mins < 10){
+				document.getElementById("time").innerHTML = (hours-12)+":"+"0"+mins+":"+secs+" PM"+"<br>";
+				//$("#weather").append("<br>"+(hours-12)+":"+"0"+mins+":"+secs+" PM"+"<br>");
+			}
+			else{
+				//$("#weather").append("<br>"+(hours-12)+":"+mins+":"+secs+" PM"+"<br>");
+				document.getElementById("time").innerHTML = (hours-12)+":"+mins+":"+secs+" PM"+"<br>";
+			}
+		}
+		else{
+			if (mins < 10){
+				document.getElementById("time").innerHTML = hours+":"+"0"+mins+":"+secs+" AM"+"<br>";
+				//$("#weather").append("<br>"+hours+":"+"0"+mins+":"+secs+" AM"+"<br>");
+			}
+			else{
+				//$("#weather").append("<br>"+hours+":"+mins+":"+secs+" AM"+"<br>");
+				document.getElementById("time").innerHTML = hours+":"+mins+":"+secs+" AM"+"<br>";
+			}
+		}
+	}
+	//call function, update every second 
+	setInterval(displayTime, 1000);
 /***********END DISPLAY TIME**********
 *************************************/
+
+
+	
+
 
 
 
@@ -162,8 +184,6 @@ setInterval(displayTime, 1000);
 /*idea: force directed diagram somewhere?? (Snowflakes: maybe don't need to use aftereffects)
 http://christophermanning.org/projects/voronoi-diagram-with-force-directed-nodes-and-delaunay-links
 */
-
-
 
 //code: http://thecodeplayer.com/walkthrough/html5-canvas-snow-effect?s=rlt
 /******************UPDATE THIS TO REFLECT OPEN WEATHER MAP CONDITIONS ************/
