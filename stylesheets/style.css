@@ -12,11 +12,12 @@
 .layer{ /*finish implementing this part, should be similar to #container --> refer to medium post*/
 	height: 900px;
     background-position: bottom center;
-    background-size: auto;
+    background-size: cover;
   	background-repeat: no-repeat;
   	width: 100%;
   	position: fixed;
   	z-index: -1;
+
 }
 
 
