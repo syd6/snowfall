@@ -204,3 +204,12 @@
     	height: 240px;
     }
 }
+
+@media only screen and (max-width: 300px) {
+    #container {
+        height: 210px;
+    }
+    .layer {
+    	height: 210px;
+    }
+}
