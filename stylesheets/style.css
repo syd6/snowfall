@@ -150,6 +150,15 @@
 	height: 40px;
 }
 
+@media only screen and (max-width: 1600px) {
+    #container {
+        height: 800px;
+    }
+    .layer {
+    	height: 800px;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     #container {
         height: 600px;
@@ -168,6 +177,15 @@
     }
 }
 
+@media only screen and (max-width: 650px) {
+    #container {
+        height: 450px;
+    }
+    .layer {
+    	height: 450px;
+    }
+}
+
 
 @media only screen and (max-width: 600px) {
     #container {
@@ -180,9 +198,9 @@
 
 @media only screen and (max-width: 400px) {
     #container {
-        height: 300px;
+        height: 240px;
     }
     .layer {
-    	height: 300px;
+    	height: 240px;
     }
 }
