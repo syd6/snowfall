@@ -19,24 +19,8 @@
   	z-index: -1;
 }
 
-/*test layer*/
-.layer1{
-	background-image: url(../images/mainbackground.jpg);
-}
 
-.layer2{
-	background-image: url(../images/hill.png);
-}
 
-.layer3{
-	background-image: url(../images/palmtree1.png);
-	background-size: 60%;
-}
-
-.layer4{
-	background-image: url(../images/palmtree2.png);
-	background-size: 70%;
-}
 
 /*winter layer*/
 .layer5{
@@ -50,38 +34,38 @@
 	background-image: url(../images/winter/snowflakelayer1.png);
 }*/
 .layer7{
-	background-image: url(../images/winter/snowflakelayer2.png);
+	background-image: url(../images/2k18-makeover/snowflakelayer2.png);
 }
 .layer8{
-	background-image: url(../images/winter/cloud1.png);
+	background-image: url(../images/2k18-makeover/cloud.png);
 	background-position: right-top;
 }
 .layer15{
-	background-image: url(../images/winter/snowpilebehind.png);
+	background-image: url(../images/2k18-makeover/back-hill.png);
 	background-position: center-bottom;
 	background-size: 100% 100%;
 }
 .layer9{
-	background-image: url(../images/winter/snowpile.png);
+	background-image: url(../images/2k18-makeover/tree-and-hill.png);
 	background-position: center-bottom;
-	background-size: 100% 100%;
-
+	background-size: 100% 100%
 }
+/*
 .layer10{
-	background-image: url(../images/winter/baretree.png);
+	background-image: url(../images/2k18-makeover/baretree.png);
 }
 .layer11{
-	background-image: url(../images/winter/snowpatches1.png);
+	background-image: url(../images/2k18-makeover/snowpatches1.png);
 }
 .layer12{
-	background-image: url(../images/winter/snowpatches2.png);
+	background-image: url(../images/2k18-makeover/snowpatches2.png);
 }
 .layer13{
-	background-image: url(../images/winter/snowpatches3.png);
+	background-image: url(../images/2k18-makeover/snowpatches3.png);
 }
 .layer14{
-	background-image: url(../images/winter/snowpatchesfinal.png);
-}
+	background-image: url(../images/2k18-makeover/snowpatchesfinal.png);
+}*/
 
 
 /*main content*/
