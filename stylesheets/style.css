@@ -116,16 +116,16 @@
 	font-style: italic;
 }
 .audioplayer{
-	width: 50%;
+	width: 85%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 3%;
+	margin-top: 6%;
 }
 .copyright{
-	width: 50%;
+	width: 85%;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top: 4%;
+	margin-top: 1%;
 	color: #A8A8A8;
 }
 /* weather experimentation*/
