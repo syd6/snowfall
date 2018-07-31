@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 	//FUNCTION #1: EXTRACT JSON FROM URL given $cityindex and default api key
 
-	$.getJSON('http://api.openweathermap.org/data/2.5/weather?id='+$cityindex+'&appid='+$api, function(data){
+	/* $.getJSON('http://api.openweathermap.org/data/2.5/weather?id='+$cityindex+'&appid='+$api, function(data){
 		
 		//param data contains json information 
 		console.log(data);
@@ -55,7 +55,7 @@ $(document).ready(function(){
 		}
 		return data;
 		
-	});
+	}); */
 
 
 	//counter. if odd, show california weather data. if even, wipe that and show ithaca weather
