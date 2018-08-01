@@ -36,9 +36,7 @@
 .layer6{
 	background-image: url(../images/winter/snowflakelayer1.png);
 }*/
-.layer7{
-	background-image: url(../images/2k18-makeover/snowflakelayer2.png);
-}
+
 .layer8{
 	background-image: url(../images/2k18-makeover/cloud.png);
 	background-position: right-top;
@@ -97,19 +95,13 @@
 	font-size: 90%;
 	background: url(../images/2k18-makeover/extra-whitespace.png);
 	background-size: cover;
-/*	padding-left: 1%;*/
-	padding-right: 1%;	
 	padding-bottom: 4%;
+	margin-top: -3%;
 	width: 100%;
-	margin-top: 1%;
-	margin-left: -8px;
-	margin-right: -8px;
 	
 }
 .textcontent2 p{
 	color: #000;
-	padding-left: 8%;
-	padding-right: 8%;
 	width: 50%;
 	margin: auto;
 	line-height: 2.5em;
